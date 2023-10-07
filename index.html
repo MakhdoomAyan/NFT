@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>NFT Market place</title>
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/5265/5265015.png">
+</head>
+<style>
+  h3 {
+    font-size: 50px;
+    font-family: Bahnschrift Condensed;
+    color: black;
+    text-align: center;
+    margin: top 50px;
+
+  }
+
+  p {
+    text-align: center;
+    color: gray;
+
+  }
+
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .d-block {
+      width: 100% !important;
+      height: 50% !important;
+    }
+  }
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .d-block {
+      width: 600px;
+    }
+  }
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .d-block {
+      width: 768px;
+    }
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .d-block {
+      width: 992px;
+    }
+  }
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .d-block {
+      width: 100%;
+    }
+  }
+
+  .header {
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    top: 0 !important;
+  }
+
+  .modal-header,
+  h4,
+  .close {
+    background-color: #333;
+    color: #fff !important;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .modal-header,
+  .modal-body {
+    padding: 40px 50px;
+  }
+  
+</style>
+
+<body>
+  <header>
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light  " style="background-color: grey;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img
+            src="https://cdn-icons-png.flaticon.com/512/5265/5265015.png"
+            alt="" height="60px"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Services</a></li>
+                <li><a class="dropdown-item" href="#">Terms/Policies</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Link</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+   
+  </header>
+
+  <section id="hero" class="d-flex align-items-center  py-5" style="background-color: rgb(0, 0, 0);">
+
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 aos-init aos-animate"
+          data-aos="fade-up" data-aos-delay="200">
+          <h1 style="color: aliceblue;  text-shadow: 1px 1px 2px navy, 0 0 25px blue, 0 0 5px darkblue;">Better Solutions For Your Business</h1>
+          <h2 style="color: aliceblue;  text-shadow: 1px 1px 2px navy, 0 0 25px blue, 0 0 5px darkblue;">We are team of talented designers making websites with Bootstrap</h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <button class="btn btn-outline-primary mx-4 " type="submit">Get Started</button>
+            <button href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="btn btn-outline-danger"
+              type="submit">Watch Video</button>
+
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+          <img
+            src="https://f8n-production-collection-assets.imgix.net/0x3B3ee1931Dc30C1957379FAc9aba94D1C48a5405/132933/nft.gif?q=80&auto=compress&cs=srgb&h=640"
+            class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Introduction about page -->
+  <div class="Introduction" style="background-color:black;">
+    <section id="about" class="about">
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title pt-4">
+          <h2 style="text-align: center; color:grey; text-underline-offset: 2px;  text-shadow: 1px 1px 2px navy, 0 0 25px blue, 0 0 5px darkblue;" class="my-4">About Us</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6b">
+            <p style="color: grey; text-align: center;">
+
+              NFTs or Non-Fungible Tokens are a kind of cryptocurrency that represents a one-of-a-kind digital asset or
+              unique piece of artwork. Fiat and cryptocurrencies are mainly used for transactional purposes and are
+              fungible, which means each unit can be interchanged.
+            </p>
+            <ul style="color: grey;">
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p style="color:grey; text-align: center;">
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <button class="btn btn-outline-secondary" type="submit">Learn More</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+  <section id="why-us" class="why-us section-bg" style="background-color: black;">
+    <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
+
+      <div class="row">
+
+        <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1 ">
+
+          <div class="content my-5">
+            <h3 style="color: grey;">Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong>
+            </h3>
+            <p>
+
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="accordion-list">
+              <div class="card my-2 bg-dark" style="width: 19rem; margin-left: 10%;">
+                <h5 class="card-title" style="color: black; text-align: center;"><span style="color: grey;">1</span> NFT
+                  Project</h5>
+                <p class="card-text">Non consectetur a erat at lectus urna duis?</p>
+                <a href="#" class="btn btn-outline-secondary " style="text-align: center;">NFT</a>
+              </div>
+            </div>
+            <div class="card my-2 bg-dark" style="width: 19rem; margin-left: 10%;">
+              <h5 class="card-title" style="color: black; text-align: center;"> <span style="color: grey;">2</span> NFT
+                Project</h5>
+              <p class="card-text">Non consectetur a erat at lectus urna duis?</p>
+              <a href="#" class="btn btn-outline-secondary " style="text-align: center;">NFT</a>
+            </div>
+
+            <div class="card my-2 bg-dark" style="width: 19rem; margin-left: 10%;">
+              <h5 class="card-title" style="color: black; text-align: center;"> <span style="color: grey;">3</span> NFT
+                Project</h5>
+              <p class="card-text">Non consectetur a erat at lectus urna duis?</p>
+              <a href="#" class="btn btn-outline-secondary " style="text-align: center;">NFT</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img aos-init aos-animate p-5  " data-aos="zoom-in"
+          data-aos-delay="150">&nbsp; <img
+            src="https://www.rollingstone.com/wp-content/uploads/2022/01/NFT-Trends-to-Expect-in-2022.png"
+            alt="" width="100%" height="60%" style="margin-top: 40% ;"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills" class="skills p-5" style="background-color: black ;">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+      <div class="row my-5">
+        <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
+          <img src="https://thinkbuthow.com/wp-content/uploads/2021/11/Thinking-Is-a-Skill.jpg" class="img-fluid"
+            alt="">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left" data-aos-delay="100">
+          <h3 style="color: grey;">Voluptatem dignissimos provident quasi corporis voluptates</h3>
+          <p class="fst-italic">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+          </p>
+
+          <div class="skills-content my-5">
+
+            <div class="progress my-2">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100">java script</div>
+            </div>
+            <div class="progress my-2">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
+                aria-valuemin="0" aria-valuemax="100">css</div>
+            </div>
+            <div class="progress my-2">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75"
+                aria-valuemin="0" aria-valuemax="100">Bootstrap</div>
+            </div>
+            <div class="progress my-2">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100">HTML</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" class="services section-bg " style="background-color: black;">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2 style="text-align: center; color: grey;  text-shadow: 1px 1px 2px navy, 0 0 25px blue, 0 0 5px darkblue;">Services</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+          in iste officiis commodi quidem hic quas.</p>
+      </div>
+
+      <div class="mt-5 p-5">
+        <div class="row justify-content-center justify-content-md-start">
+          <div class="col-10 col-sm-6 mb-2 col-md-4 col-lg-3">
+            <div class="card border-secondary bg-dark mb-3 ">
+              <div class="card-header bg-transparent border-secondary text-secondary"><i style="font-size: 40px;"
+                  class="bi bi-speedometer"></i></div>
+              <div class="card-body text-success">
+                <h5 class="card-title">Progress</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's
+                  content.</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-10 col-sm-6 mb-2 col-md-4 col-lg-3">
+            <div class="card border-secondary bg-dark mb-3">
+              <div class="card-header bg-transparent border-secondary text-secondary"><i style="font-size: 40px;"
+                  class="bi bi-emoji-laughing-fill"></i></div>
+              <div class="card-body text-success">
+                <h5 class="card-title">Happy Customer</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's
+                  content.</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-10 col-sm-6 mb-2 col-md-4 col-lg-3">
+            <div class="card border-secondary bg-dark mb-3">
+              <div class="card-header bg-transparent border-secondary text-secondary"><i style="font-size: 40px;"
+                  class="bi bi-chat-square-dots"></i></div>
+              <div class="card-body text-success">
+                <h5 class="card-title">Review</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's
+                  content.</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-10 col-sm-6 mb-2 col-md-4 col-lg-3">
+            <div class="card border-secondary bg-dark mb-3">
+              <div class="card-header bg-transparent border-secondary text-secondary"><i style="font-size: 40px;"
+                  class="bi bi-globe2"></i></div>
+              <div class="card-body text-success">
+                <h5 class="card-title">Global</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's
+                  content.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="cta" class="cta p-3"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://d31l02nbp0owar.cloudfront.net/m/s/16865/16855306/a-0120.jpg) ;  ">
+    <div class="container aos-init aos-animate" data-aos="zoom-in">
+
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-start">
+          <h3 class="text-secondary">Call To Action</h3>
+          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.</p>
+        </div>
+        <div class="col-lg-3 cta-btn-container text-center">
+          <a href="#" class="btn btn-outline-secondary "
+            style="text-align: center; margin-top: 70px; font-size: 20px;">Call To Action</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio bg-black p-5">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2 style="text-align: center; color: grey;  text-shadow: 1px 1px 2px navy, 0 0 25px blue, 0 0 5px darkblue;">Portfolio</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+          in iste officiis commodi quidem hic quas.</p>
+      </div>
+
+      <div class="my-4">
+        <h1 style="color:rgba(122, 119, 119, 0.719) ;">NFT <span style="color: rgb(62, 41, 218);">PORTFOLIO</span></h1>
+      </div>
+      <div class="container-lg my-4">
+        <div class="">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/portrait-colorful-tiger-illustration-design-ai-generated_834670-957.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=ais"
+                  class="card-img-top  object-fit-cover   " alt="..." height="300px " style="box-shadow: 1px 1px 2px blue, 0 0 25px blue, 0 0 5px darkblue;"
+                  width="300px">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON </p>
+                  <!-- <button type="button" class="btn btn-outline-dange" style="color: blue; " data-toggle="modal"
+                    data-target="#exampleModal">NFT</button> -->
+                  <button type="button" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    NFT
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/free-photo/cat-warriors-with-burning-eyes-generative-ai_8829-2909.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top  object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow: 1px 1px 2px blue, 0 0 25px blue, 0 0 5px darkblue;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/metaverse-digital-avatar-metaverse-presence-digital-technology-cyber-world-virtual-reality_72482-3626.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top  object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow: 1px 1px 2px blue, 0 0 25px blue, 0 0 5px darkblue;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 " >
+                <img
+                  src="https://img.freepik.com/premium-photo/smoking-monkey-sitting-bar_829042-2.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top  object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:1px 1px 2px darkolivegreen, 0 0 25px violet, 0 0 5px blue">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/girl-with-vr-glasses-metaverse-concept-generated-ai_802770-139.jpg?size=626&ext=jpg&ga=GA1.2.468692685.1692786647&semt=sph"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:1px 1px 2px darkolivegreen, 0 0 25px violet, 0 0 5px blue">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white; " data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 " >
+                <img
+                  src="https://img.freepik.com/free-photo/tiger-with-cyberpunk-design-illustration_826849-604.jpg?size=626&ext=jpg&ga=GA1.2.468692685.1692786647&semt=sph"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:1px 1px 2px darkolivegreen, 0 0 25px violet, 0 0 5px blue">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 " >
+                <img
+                  src="https://img.freepik.com/premium-photo/human-wearing-vr-glasses-looking-hologram-city-ai-generated_152359-1161.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:1px 1px 2px rgb(31, 92, 130), 0 0 25px rgb(130, 164, 238), 0 0 5px rgb(26, 121, 180)">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 "  >
+                <img
+                  src="https://img.freepik.com/premium-photo/man-black-jacket-looking-city-with-neon-light-his-head_771335-52080.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:1px 1px 2px rgb(31, 92, 130), 0 0 25px rgb(130, 164, 238), 0 0 5px rgb(26, 121, 180)" >
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 " >
+                <img
+                  src="https://img.freepik.com/free-photo/cyberpunk-warrior-looking-city_23-2150712554.jpg?size=626&ext=jpg&ga=GA1.2.468692685.1692786647&semt=ais"
+                  class="card-img-top  object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:1px 1px 2px rgb(31, 92, 130), 0 0 25px rgb(130, 164, 238), 0 0 5px rgb(26, 121, 180)">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/purple-poster-with-man-with-head-with-crown-it_878132-4.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:1px 1px 2px darkolivegreen, 0 0 25px violet, 0 0 5px blue">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/titans-generated-by-ai_950421-265.jpg?size=626&ext=jpg&ga=GA1.2.468692685.1692786647&semt=ais"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow: 1px 1px 2px blue, 0 0 25px blue, 0 0 5px darkblue;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/mad-scientist-drinking-orange-glowing-liquid-style-halloween-3d_950002-131055.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=ais"
+                  class="card-img-top  object-fit-cover " alt="..." height="300px" width="300px"  style="box-shadow: 1px 1px 2px darkgoldenrod, 0 0 25px orange, 0 0 5px darkorange" >
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/photo-cube-box-consists-matrix-digitsfuturistic-modern_812426-18408.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=ais"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow: 1px 1px 2px darkgreen, 0 0 25px orange, 0 0 5px green">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-toggle="modal"
+                    data-target="#myModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/futuristic-man-wearing-3d-vr-headset-glasses-looks-up-3d-illustration_717906-1530.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px"  style="box-shadow:1px 1px 2px rgb(31, 92, 130), 0 0 25px rgb(130, 164, 238), 0 0 5px rgb(26, 121, 180)">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;"data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/monkey-with-badge-that-says-monkey-it_857287-9.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top  object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:1px 1px 2px rgb(31, 92, 130), 0 0 25px rgb(130, 164, 238), 0 0 5px rgb(26, 121, 180)">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;"data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/glowing-nft-text-virtual-city_163855-254.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=sph"
+                  class="card-img-top  object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:2px 2px 2px rgb(135, 158, 173), 0 0 30px rgb(65, 97, 131), 0 0 15px rgb(26, 121, 180)">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;"data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/free-photo/scene-professional-esports-gamer-profile-colored-with-red-blue-light-generative-ai_191095-1976.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=ais"
+                  class="card-img-top  object-fit-cover " alt="..." height="300px" width="300px" style="box-shadow:2px 2px 2px red, 0 0 30px darkred, 0 0 15px rgb(150, 47, 47)">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;"data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6">
+              <div class="card bg-transparent  h-100 p-3 ">
+                <img
+                  src="https://img.freepik.com/premium-photo/fantasy-3d-background-high-quality-18k_927747-122.jpg?size=626&ext=jpg&ga=GA1.2.468692685.1692786647&semt=ais"
+                  class="card-img-top object-fit-cover " alt="..." height="300px" width="300px"  style="box-shadow:2px 2px 2px rgb(25, 192, 25), 0 0 30px rgb(24, 176, 83), 0 0 15px rgb(47, 150, 141)">
+                <div class="card-body d-flex flex-column align-items-center justify-content-end">
+                  <h5 class="card-title text-white mb-3"></h5>
+                  <p class="card-text text-white mb-3">detail and price are given in (NFT) BUTTON
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary" style="color: white;"data-bs-toggle="modal" data-bs-target="#exampleModal">NFT</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+  <section id="team" class="team section-bg bg-black p-4">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2 style="color: grey; text-align: center;">Team</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+          in iste officiis commodi quidem hic quas.</p>
+      </div>
+
+      <div class="container my-5">
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">NFT</strong>
+                <h3 class="mb-0 text-secondary">Walter White</h3>
+                <P><b>Chief Executive Officer</b></P>
+
+                <div class="mb-1 text-muted">1-oct</div>
+                <p class="card-text mb-auto">Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6 text-secondary">
+                  <i class="bi bi-facebook">-</i><i class="bi bi-instagram">-</i><i class="bi bi-linkedin">-</i><i
+                    class="bi bi-twitter"></i>
+                </div>
+                <a href="#" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block ">
+                <img class="bd-placeholder-img" width="200" height="150"
+                  src="https://img.freepik.com/free-photo/handsome-businessman-suit-glasses-cross-arms-chest-look_176420-21750.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=ais"
+                  alt="">
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">NFT</strong>
+                <h3 class="mb-0 text-secondary"> Jhonson</h3>
+                <p><b>Product Manager</b></p>
+
+                <div class="mb-1 text-muted">1-oct</div>
+                <p class="mb-auto">Aut maiores voluptates amet et quis praesentium qui senda para</p>
+                <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6 text-secondary">
+                  <i class="bi bi-facebook">-</i><i class="bi bi-instagram">-</i><i class="bi bi-linkedin">-</i><i
+                    class="bi bi-twitter"></i>
+                </div>
+                <a href="#" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="150"
+                  src="https://img.freepik.com/premium-photo/portrait-young-cheerful-businessman-wristwatch-holding-using-laptop-isolated-white_171337-115997.jpg?size=626&ext=jpg&ga=GA1.1.468692685.1692786647&semt=ais"
+                  alt="">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container my-4">
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">NFT</strong>
+                <h3 class="mb-0 text-secondary">William Anderson</h3>
+                <p><b>CTO</b></p>
+
+                <div class="mb-1 text-muted">1-oct</div>
+                <p class="card-text mb-auto">Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+                <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6 text-secondary">
+                  <i class="bi bi-facebook">-</i><i class="bi bi-instagram">-</i><i class="bi bi-linkedin">-</i><i
+                    class="bi bi-twitter"></i>
+                </div>
+                <a href="#" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="150"
+                  src="https://img.freepik.com/free-photo/mand-holding-cup_1258-340.jpg?size=626&ext=jpg&ga=GA1.2.468692685.1692786647&semt=ais"
+                  alt="">
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">NFT</strong>
+                <h3 class="mb-0 text-secondary">Amanda Jepson</h3>
+                <p><b>Accountant
+                  </b></p>
+                <div class="mb-1 text-muted">Nov 11</div>
+                <p class="mb-auto">This is a wider card with supporting text below as a lead-in to additional content.
+                </p>
+                <div class="col-12 col-lg-4 col-md-4 mb-4 col-sm-6 text-secondary">
+                  <i class="bi bi-facebook">-</i><i class="bi bi-instagram">-</i><i class="bi bi-linkedin">-</i><i
+                    class="bi bi-twitter"></i>
+                </div>
+
+                <a href="#" class="stretched-link">Continue reading</a>
+
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="150"
+                  src="https://as1.ftcdn.net/v2/jpg/01/07/42/56/1000_F_107425642_Zu7JLDSsfwNDRuPuDQgNen41qtEJBEgb.jpg"
+                  alt="">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </section>
+  <section id="pricing" class="pricing bg-black p-3">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2 style="text-align: center; color: grey;">Pricing</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+          in iste officiis commodi quidem hic quas.</p>
+      </div>
+      <div class="pricing">
+        <div class="row">
+          <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Free Plan</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>10 users included</li>
+                  <li>2 GB of storage</li>
+                  <li>Email support</li>
+                  <li>Help center access</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-outline-secondary " data-toggle="modal"
+                  data-target="#myNFTmodal">Sign up for free</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Business Plan</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">$15<small class="text-body-secondary fw-light">/mo</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>20 users included</li>
+                  <li>10 GB of storage</li>
+                  <li>Priority email support</li>
+                  <li>Help center access</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-secondary">Get started</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm border-secondaty">
+              <div class="card-header py-3 text-bg-secondary border-secondary">
+                <h4 class="my-0 fw-normal">Developer Plan</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mo</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>30 users included</li>
+                  <li>15 GB of storage</li>
+                  <li>Phone and email support</li>
+                  <li>Help center access</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-secondary">Contact us</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+
+      <div class="modal-content" style="background-image: url(https://img.freepik.com/free-vector/gradient-black-background-with-cubes_23-2149161840.jpg?size=626&ext=jpg&ga=GA1.2.468692685.1692786647&semt=ais); background-repeat: no-repeat;">
+        <div class="modal-header">
+          <button type="button" class="close"data-bs-dismiss="modal" aria-label="Close">×</button>
+          <h4 style="color: aliceblue; text-align: center;">NFT<span class="glyphicon glyphicon-lock"></span></h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="psw" style="color: darkgray;"><span class="glyphicon glyphicon-shopping-cart"></span> NFT, $500 per</label>
+              <input type="number" class="form-control" id="psw" placeholder="How many?">
+            </div>
+            <div class="form-group">
+              <label for="usrname" style="color: darkgray;"><span class="glyphicon glyphicon-user"></span> Send To</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+            <button type="submit" class="btn btn-block btn btn-primary mt-3">Pay
+              <span class="glyphicon glyphicon-ok"></span>
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove "></span> Cancel
+          </button>
+          <p>Need <a href="#">help?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="footer-top bg-dark p-3">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3><img src="https://cdn.pixabay.com/photo/2021/12/23/00/19/nft-6888382_960_720.png" height="70px" alt=""></h3>
+          <p>
+            Qasimabad <br>
+            Hyderabad<br>
+            Sindh,Pakistan <br><br>
+            <strong>Phone:</strong>03332323230<br>
+            <strong>Email:</strong> info@example.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h5 style="color: aliceblue; font-family: monospace;">Useful Links</h5>
+          <ul style="color: grey;">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">About us</a>
+            <a class="nav-link active" aria-current="page" href="#">Services</a>
+            <a class="nav-link active" aria-current="page" href="#">Terms of services</a>
+            <a class="nav-link active" aria-current="page" href="#">Privacy Policy</a>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h5 style="color: aliceblue; font-family: monospace;">Our Services</h5>
+          <ul style="color: grey;">
+            <a class="nav-link active" aria-current="page" href="#">Web Design</a>
+            <a class="nav-link active" aria-current="page" href="#">Web Development</a>
+            <a class="nav-link active" aria-current="page" href="#">Product Managment</a>
+            <a class="nav-link active" aria-current="page" href="#">Marketing</a>
+            <a class="nav-link active" aria-current="page" href="#">Graphic Design</a>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h5 style="color: aliceblue; font-family: monospace;">Our Social Networks</h5>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <div class="social-links mt-3" style="color:grey;">
+            <i class="bi bi-facebook"></i>---
+            <i class="bi bi-whatsapp"></i>---
+            <i class="bi bi-messenger"></i>---
+            <i class="bi bi-instagram"></i>---
+            <i class="bi bi-twitter"></i>---
+            <i class="bi bi-linkedin"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    $(document).ready(function () {
+      // Initialize Tooltip
+      $('[data-toggle="tooltip"]').tooltip();
+
+      // Add smooth scrolling to all links in navbar + footer link
+      $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 900, function () {
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+      myInput.focus()
+    })
+  </script>
+</body>
+
+</html>
